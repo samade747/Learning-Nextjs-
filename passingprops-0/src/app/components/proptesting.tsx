@@ -1,6 +1,6 @@
 
 
-const Proptesting = () => {
+const Proptesting = (props:any) => {
 
     return (
         <div>
