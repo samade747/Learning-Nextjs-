@@ -1,17 +1,17 @@
-export const comments = [
+export const commentx = [
     {
         id: 1,
-        body: "comment SAMAD 1",
+        text: "sdd",
         postId: 1,
     },
     {
         id: 2,
-        body: "comment SAMAD 2",
+        text: "dsfdsdsds",
         postId: 1,
     },
     {
         id: 3,
-        body: "comment SAMAD 3",
+        text: "csdfdfsdfsfds3",
         postId: 2,
     }
 

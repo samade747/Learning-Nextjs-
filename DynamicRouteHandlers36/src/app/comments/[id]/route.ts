@@ -1,4 +1,4 @@
-import { comments } from "../data";
+import { commentx } from "../data";
 
 
 
@@ -7,7 +7,8 @@ export async function GET(
     { params }: { params: { id: string } }
 
 ) {
-    const comment = comments.find((comment) => comment.id === Number(params.id)
+    const comment = commentx.find(
+    (comment) => comment.id === parseInt(params.id)
 );
-    return new Response("comments data from server");
+    return Response.json(comment);
 }
