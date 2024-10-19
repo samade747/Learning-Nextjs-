@@ -1,4 +1,4 @@
-export const commentx = [
+export const comments = [
     {
         id: 1,
         text: "sdd",
@@ -11,8 +11,8 @@ export const commentx = [
     },
     {
         id: 3,
-        text: "csdfdfsdfsfds3",
-        postId: 2,
+        text: "cdfdfdfs",
+        postId: 55,
     }
 
 ]
