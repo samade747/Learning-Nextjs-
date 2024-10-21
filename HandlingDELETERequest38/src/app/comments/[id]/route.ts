@@ -1,7 +1,5 @@
 import { comments } from "../data";
 
-
-
 export async function GET(
     _request: Request,
     { params }: { params: { id: string } }
@@ -31,3 +29,13 @@ export async function PATCH(
 }
 
 
+export async function DELETE(
+    request: Request,
+    { params }: { params: { id: string } }
+){
+    const index = comments.findIndex(
+    (comment) => comment.id === parseInt(params.id)
+);
+    comments.splice(index, 1);
+    return Response.json({ message: "deleted" });
+}
