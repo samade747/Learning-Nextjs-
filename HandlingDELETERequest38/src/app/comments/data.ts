@@ -11,7 +11,7 @@ export const comments = [
     },
     {
         id: 3,
-        text: "cdfdfdfs",
+        text: "samad 33d",
         postId: 55,
     }
 
