@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { comments } from "@/data"; // Adjust path if needed
+import { comments } from "../data"; // Adjust path if needed
 
 // GET request handler
 export async function GET(request: NextRequest) {
