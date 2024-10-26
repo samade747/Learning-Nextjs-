@@ -1,36 +1,49 @@
-// import { NextResponse } from "next/server"; 
-// import { comments as commentsData } from "./data"; 
+import { type NextRequest } from "next/server";
+import { comments as ab } from "./data"; 
 
-// let comments = [...commentsData]; 
-// export async function GET() {
-//   // Return the current list of comments as JSON
-//   return NextResponse.json(comments);
+// GET request handler
+export async function GET(request: NextRequest) {
+    // Extract the 'query' parameter from the URL's search parameters
+    const searchParams = request.nextUrl.searchParams;
+    const query = searchParams.get("query");
+
+    // Filter comments based on the presence of 'query' in the comment text
+    const filteredComments = query
+        ? ab.filter((comment) => comment.text.includes(query))
+        : ab;
+
+    // Return the filtered or full list of comments as a JSON response
+    return new Response(JSON.stringify(filteredComments), {
+        headers: { "Content-Type": "application/json" },
+    });
+}
+
+// // POST request handler
+// export async function POST(request: NextRequest) {
+//     const newComment = await request.json();
+//     comments.push({ id: comments.length + 1, ...newComment });
+
+//     return NextResponse.json({ message: "Comment added", comments });
 // }
 
-// export async function POST(request: Request) {
-//   try {
-//     const body = await request.json(); 
+// // PUT request handler
+// export async function PUT(request: NextRequest) {
+//     const { id, text } = await request.json();
+//     const commentIndex = comments.findIndex((comment) => comment.id === id);
+    
+//     if (commentIndex === -1) return NextResponse.json({ message: "Comment not found" }, { status: 404 });
 
-//     const newComment = {
-//       id: comments.length + 1, 
-//       body: body.text, 
-//       postId: body.postId,
-//     };
+//     comments[commentIndex].text = text;
+//     return NextResponse.json({ message: "Comment updated", comments });
+// }
 
-//     comments.push(newComment); 
+// // DELETE request handler
+// export async function DELETE(request: NextRequest) {
+//     const { id } = await request.json();
+//     const commentIndex = comments.findIndex((comment) => comment.id === id);
+    
+//     if (commentIndex === -1) return NextResponse.json({ message: "Comment not found" }, { status: 404 });
 
-//     return new NextResponse(JSON.stringify(newComment), {
-//       headers: {
-//         "content-type": "application/json",
-//       },
-//       status: 201, 
-//     });
-//   } catch (error) {
-//     return new NextResponse(JSON.stringify({ message: "Failed to add comment" }), {
-//       headers: {
-//         "content-type": "application/json",
-//       },
-//       status: 500, 
-//     });
-//   }
+//     comments.splice(commentIndex, 1);
+//     return NextResponse.json({ message: "Comment deleted", comments });
 // }

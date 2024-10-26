@@ -6,13 +6,28 @@ export const comments = [
     },
     {
         id: 2,
-        text: "dsfdsdsds ",
+        text: "mai ho na comment ",
         
     },
     {
         id: 3,
-        text: "samad 33d ",
+        text: "mary ",
         
-    }
+    },
+    {
+        id: 4,
+        text: "we are here",
+        
+    },
+    {
+        id: 5,
+        text: "Mern stack developer",
+        
+    },
+    {
+        id: 6,
+        text: "samad ",
+        
+    },
 
 ]
