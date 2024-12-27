@@ -21,21 +21,21 @@
 
 // 2nd approrch 
 
-// import { NextResponse, type NextRequest } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 
-// export function middleware(request: NextRequest) {
-//     if(request.nextUrl.pathname === '/profile') {
-//     // return NextResponse.redirect(new URL('/login', request.url));
-//     return NextResponse.rewrite(new URL('/login', request.url));
-// }
+export function middleware(request: NextRequest) {
+    if(request.nextUrl.pathname === '/profile') {
+    // return NextResponse.redirect(new URL('/login', request.url));
+    return NextResponse.rewrite(new URL('/login', request.url));
+}
 
-// }
+}
 
-// export default middleware;
+export default middleware;
 
-// export const config = {
-//     matcher: '/profile',
-// };
+export const config = {
+    matcher: '/profile',
+};
 
 // The  middleware  function is called with a  NextRequest  object, 
 // which contains information about the incoming request.
@@ -47,20 +47,20 @@
 
 // 3rd approach
 
-import { NextResponse, type NextRequest } from 'next/server';
+// import { NextResponse, type NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+// export function middleware(request: NextRequest) {
 
-    const response = NextResponse.next()
+//     const response = NextResponse.next()
 
-    const themePreference = request.cookies.get('theme')
-    if(!themePreference) {
-        response.cookies.set('theme', 'light')
-    }
+//     const themePreference = request.cookies.get('theme')
+//     if(!themePreference) {
+//         response.cookies.set('theme', 'light')
+//     }
 
-    response.headers.set('custom-header', 'custom-value')
+//     response.headers.set('custom-header', 'custom-value')
 
-    return response
+//     return response
         
-}
+// }
 
